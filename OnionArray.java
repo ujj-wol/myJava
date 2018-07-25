@@ -1,3 +1,7 @@
+/**
+ *Created on 6/23/18
+ */
+
 public class OnionArray {
   public static void main (String[] args) {
     System.out.println(isOnionArray(new int[]{1, 2, 19, 4, 5}));
