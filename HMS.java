@@ -12,6 +12,8 @@ public class HMS {
     System.out.println (Arrays.toString(a));
     a = computeHMS(0);
     System.out.println (Arrays.toString(a));
+    a = computeHMS(3661);
+    System.out.println (Arrays.toString(a));
   }
 
   static int[] computeHMS (int seconds) {
