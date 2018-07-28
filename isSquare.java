@@ -12,11 +12,13 @@ public class isSquare{
 		System.out.println(result);
     result = isSquare(0);
 		System.out.println(result);
+		System.out.println(isSquare(81));
 	}
 
 	static int isSquare(int n) {
+		if (n < 0) return 0;
 		int sq = 0;
-      for (int i = 0; i <= n; i++) {
+      for (int i = 0; sq <= n; i++) {
         sq = i * i;
         if (sq == n) {
           return 1;
