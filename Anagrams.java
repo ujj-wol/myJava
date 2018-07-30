@@ -16,6 +16,36 @@ public class Anagrams {
 
   static int areAnagrams (char[] a1, char[] a2) {
 
+    if (a1.length != a2.length) return 0;
+
+    int len = a1.length;
+    char[] a1Copy = new char[len];
+    char[] a2Copy = new char[len];
+
+    int i;
+    for (i = 0; i < len; i++) {
+      a1Copy[i] = a1[i];
+      a2Copy[i] = a2[i];
+    }
+
+    boolean flag = false;
+    for (i = 0; i < len; i++) {
+      for (int j = 0; j < len; j++) {
+        if (a1Copy[i] == a2Copy[j]) {
+          a1Copy[i] = ' ';
+          a2Copy[j] = ' ';
+          flag = true;
+          break;
+        }
+      }
+      if (!flag) return 0;
+      flag = false;
+    }
+    return 1;
+  }
+
+  static int areAnagrams1 (char[] a1, char[] a2) {
+
     //System.out.println(Arrays.toString(a1));
     //System.out.println(Arrays.toString(a2));
 
