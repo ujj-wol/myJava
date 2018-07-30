@@ -9,14 +9,18 @@ public class largestAdjacentSum {
     System.out.println(result);
     result = largestAdjacentSum(new int[] {1,1,1,1,1,2,1,1,1});
     System.out.println(result);
+    result = largestAdjacentSum(new int[] {-1, -3, -4, 1});
+    System.out.println(result);
+    result = largestAdjacentSum(new int[] {-1, -3, -4, 1, -2, 0, 0});
+    System.out.println(result);
 
   }
 
   static int largestAdjacentSum(int[] a) {
-    int sum = 0;
+    int sum = a[0] + a[1];
     int sumNew = 0;
 
-    for (int i = 0; i < a.length -1; i++) {
+    for (int i = 1; i < a.length -1; i++) {
       sumNew = a[i] + a[i+1];
       if (sumNew > sum) {
         sum = sumNew;
