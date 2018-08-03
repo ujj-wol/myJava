@@ -13,6 +13,21 @@ public class FillArray {
         return null;
       int[] arr2 = new int[n];
       int index = 0;
+      for(int i = index * k, j = 0; i < n; i++, j++) {
+        if(j == k) {
+          index++;
+          j = 0;
+        }
+        arr2[i] = arr[j];
+      }
+      return arr2;
+    }
+
+    static int[] fill1(int[] arr, int k, int n) {
+      if(k <= 0 || n <= 0)
+        return null;
+      int[] arr2 = new int[n];
+      int index = 0;
       for(int i = 0; i < n; i++) {
         if(index == k)
           index = 0;
@@ -22,7 +37,7 @@ public class FillArray {
       return arr2;
     }
 
-    static int[] fill1(int[] arr, int k, int n) {
+    static int[] fill2(int[] arr, int k, int n) {
         if (k <= 0 || n <= 0)
             return null;
 

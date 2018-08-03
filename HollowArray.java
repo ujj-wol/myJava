@@ -1,6 +1,11 @@
 public class HollowArray {
 
   public static void main(String[] args) {
+          System.out.println(isHollow(new int[]{1, 2, 4, 0, 0, 0, 3, 4, 5}));
+          System.out.println(isHollow(new int[]{1, 2, 0, 0, 0, 3, 4, 5}));
+          System.out.println(isHollow(new int[]{1, 2, 4, 9, 0, 0, 0, 3, 4, 5}));
+          System.out.println(isHollow(new int[]{1, 2, 0, 0, 3, 4}));
+
           System.out.println(isHollow(new int[]{1, 2, 0, 0, 0, 3, 4}));
           System.out.println(isHollow(new int[]{1, 1, 1, 1, 0, 0, 0, 0, 0, 2, 1, 2, 18}));
           System.out.println(isHollow(new int[]{1, 2, 0, 0, 3, 4}));
@@ -13,7 +18,22 @@ public class HollowArray {
           System.out.println(isHollow(new int[]{0, 0, 1, 0, 1, 0, 0}));
       }
 
-  static int isHollow (int[] a) {
+      static int isHollow (int[] a) {
+        if(a.length < 3)
+          return 0;
+
+        int len = a.length;
+        if(a[len/2] != 0 || a[len/2 + 1] != 0 || a[len/2 - 1] != 0)
+          return 0;
+
+        for(int i = 0, j = len - 1; i < j; i++, j--) {
+          if((a[i] != 0 && a[j] == 0) || (a[i] == 0 && a[j] != 0))
+            return 0;
+        }
+        return 1;
+      }
+
+  static int isHollow3 (int[] a) {
     if (a.length < 3)
       return 0;
     int nonZerosLeft = 0, nonZerosRight = 0, countZero = 0;
