@@ -5,6 +5,7 @@ public class BunkerArray_another {
         System.out.println(isBunker(new int[]{7, 6, 10}));
         System.out.println(isBunker(new int[]{6, 10, 1}));
         System.out.println(isBunker(new int[]{3, 7, 1, 8, 1}));
+        System.out.println(isBunker(new int[]{15, 8}));
     }
 
     static int isBunker(int[] a) {

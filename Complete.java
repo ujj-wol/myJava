@@ -1,12 +1,12 @@
 public class Complete {
 
     public static void main(String[] args) {
-      /*
-        System.out.println(isComplete(new int[]{2, 3, 2, 4, 11, 6, 10, 9, 8}));
-        System.out.println(isComplete(new int[]{2, 3, 2, 4, 11, 8, 10, 9, 8}));
-        System.out.println(isComplete(new int[]{2, 3, 3, 6}));
-        System.out.println(isComplete(new int[]{2, -3, 4, 3, 6}));
 
+        System.out.println(isComplete_another(new int[]{2, 3, 2, 4, 11, 6, 10, 9, 8}));
+        System.out.println(isComplete_another(new int[]{2, 3, 3, 6}));
+        System.out.println(isComplete_another(new int[]{2, -3, 4, 3, 6}));
+        System.out.println(isComplete_another(new int[]{2, 3, 2, 4, 11, 6, 10, 9, 12}));
+      /*
         System.out.println();
         System.out.println(isComplete1(new int[]{36, -28}));
         System.out.println(isComplete1(new int[]{36, 28}));
@@ -55,4 +55,29 @@ public class Complete {
       }
       return 1;
     }
+
+    static int isComplete_another(int[] a) {
+      int maxEven = Integer.MIN_VALUE;
+      for(int element : a) {
+        if(element <= 0)
+          return 0;
+
+        if(element % 2 == 0 && element > maxEven)
+          maxEven = element;
+      }
+
+      for(int i = 2; i < maxEven; i = i + 2) {
+        boolean flag = false;
+        for(int element : a) {
+          if(element == i) {
+            flag = true;
+            break;
+          }
+        }
+        if(!flag) return 0;
+      }
+      return 1;
+    }
+
+
   }
