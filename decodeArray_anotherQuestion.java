@@ -9,6 +9,8 @@ public class decodeArray_anotherQuestion {
     System.out.println(decodeArray(new int[] {0, 1, 1, 1, 1, 1, 0, 1}));
 
     System.out.println(decodeArray(new int[] {0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1}));
+
+    System.out.println(decodeArray(new int[] {-1, 0 ,1, 1}));
   }
 
   public static int decodeArray (int[] a) {

@@ -22,4 +22,19 @@ public class IntegerEquivalent {
     }
     return number;
   }
+
+  public static String integerEquivalent1 (char[] a) {
+    if (a == null || a.length == 0)
+      return "-1";
+    int digit = 0;
+    String number = "";
+    for (int i = 0; i < a.length; i++) {
+      digit = Character.getNumericValue(a[i]);
+      //digit = Integer.parseInt(String.valueOf(a[i]));
+      if (digit == -1) return "-1";
+      else
+        number += a[i];
+    }
+    return number;
+  }
 }

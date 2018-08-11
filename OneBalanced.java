@@ -8,6 +8,8 @@ public class OneBalanced {
     System.out.println(isOneBalanced (new int[] {1, 1, 3, 4}));
     System.out.println(isOneBalanced (new int[] {3, 3, 3, 3, 3, 3}));
     System.out.println(isOneBalanced (new int[] {1, 1, 1, 1, 1, 1}));
+    System.out.println("");
+    System.out.println(isOneBalanced (new int[] {3, 1, 3, 1}));
 
   }
 
@@ -38,5 +40,32 @@ public class OneBalanced {
     }
     if ((signChanges == 1 || signChanges == 2) && countOnes == countNotOnes) return 1;
     else return 0;
+  }
+
+  static int isOneBalanced1(int[] a) {
+    boolean repeatFlag = true, oneFlag = false, notOneFlag = false;
+    int countOnes = 0, countNotOnes = 0;
+    for(int i = 0; i < a.length; i++) {
+      if(!oneFlag || !notOneFlag) {
+        if(a[i] == 1) {
+          countOnes++;
+          oneFlag = true;
+          if(notOneFlag) repeatFlag = false;
+        } else {
+            countNotOnes++;
+            notOneFlag = true;
+        }
+      } else {
+          if(a[i] == 1) {
+            repeatFlag = false;
+            countOnes++;
+          } else {
+              if(!repeatFlag) return 0;
+              else countNotOnes++;
+            }
+      }
+    }
+    if(countOnes != countNotOnes) return 0;
+    return 1;
   }
 }

@@ -3,6 +3,7 @@ public class DistinctIntegersCount {
     System.out.println(countDistinct(new int[] {1, 2, 3, 10}));
     System.out.println(countDistinct(new int[] {5, 5, 5, 5}));
     System.out.println(countDistinct(new int[] {5, 1, 5, 5}));
+    System.out.println(countDistinct(new int[] {5, 1, 5}));
     System.out.println(countDistinct(new int[] {5, 2, 2, 1, 3, 7, 11, 5}));
     System.out.println(countDistinct(new int[] {99, 5, 25, 25, 75, 55}));
   }

@@ -18,6 +18,25 @@ public class _121Array {
         if (a.length < 3 || a[0] != 1 || a[a.length - 1] != 1)
             return 0;
 
+        boolean startChecking1 = false, foundTwo = false;
+        for (int i = 0, j = a.length - 1; i <= j; i++, j--) {
+          if(a[i] != a[j] || (a[i] != 1 && a[i] != 2))
+            return 0;
+          else if(a[i] == 2) {
+            foundTwo = true;
+            startChecking1 = true;
+          }
+          if(startChecking1 && a[i] == 1)
+            return 0;
+        }
+        if(foundTwo) return 1;
+        return 0;
+    }
+
+    static int is121Array1(int[] a) {
+        if (a.length < 3 || a[0] != 1 || a[a.length - 1] != 1)
+            return 0;
+
         int countLeft1s = 0, countRight1s = 0, count2s = 0;
         for (int i = 0; i < a.length; i++) {
           if (a[i] == 1) {

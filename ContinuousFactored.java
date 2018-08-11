@@ -5,6 +5,7 @@ public class ContinuousFactored {
         System.out.println(isContinuousFactored(60));
         System.out.println(isContinuousFactored(120));
         System.out.println(isContinuousFactored(90));
+        System.out.println(isContinuousFactored(99));
         System.out.println(isContinuousFactored(121));
         System.out.println(isContinuousFactored(2));
         System.out.println(isContinuousFactored(13));
@@ -12,7 +13,7 @@ public class ContinuousFactored {
         System.out.println(isContinuousFactored(180));
     }
 
-    static int isContinuousFactored(int n) {
+    static int isContinuousFactored1(int n) {
       for(int i = 2; i <= n/2; i++) {
         int j = i;
         int product = 1;
@@ -27,10 +28,15 @@ public class ContinuousFactored {
       return 0;
     }
 
-    static int isContinuousFactored1(int n) {
-        for (int i = 2; i < n; i++) {
-            if (n % i == 0 && n % (i + 1) == 0)
-                return 1;
+    static int isContinuousFactored(int n) {
+        for (int i = 2; i <= n/2; i++) {
+          int j = i;
+          int product = 1;
+          while(n % j == 0 && product < n) {
+            product *= j;
+            j++;
+          }
+          if(product == n) return 1;
         }
         return 0;
     }

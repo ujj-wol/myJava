@@ -12,21 +12,21 @@ public class ZeroLimited {
         System.out.println(isZeroLimited(new int[]{1, 0, 5, 5, 0, 1, 1, 0, 5, 1, 0}));
     }
 
-    static int isZeroLimited(int[] a) {
-      //int n = 0;
-      //for (int x = (3 * n + 1); x < a.length; x = (3 * n + 1)) {
-      for (int x = 1; x < a.length; x += 3) { // x = 3 * n + 1 = 1, 4, 7, 10, ...
+    static int isZeroLimited2(int[] a) {
+      int n = 0;
+      for (int x = (3 * n + 1); x < a.length; x = (3 * n + 1)) {
+      //for (int x = 1; x < a.length; x += 3) { // x = 3 * n + 1 = 1, 4, 7, 10, ...
         int i = 0;
         if (x > 1)
-          //i = (3 * (n-1) +2);
-          i = x - 2;
+          i = (3 * (n-1) +2);
+          //i = x - 2;
         for (; i <= x; i++) {
     			if (i < x && a[i] == 0)
             return 0;
           if (i == x && a[i] != 0)
             return 0;
     		}
-        //n++;
+        n++;
       }
       return 1;
 	  }
@@ -49,4 +49,18 @@ public class ZeroLimited {
       }
       return 1;
     }
+
+    static int isZeroLimited(int[] a) {
+      int n = 0;
+      for (int i = 1; i < a.length; i += 3) {
+        while(n <= i) {
+          if(n < i && a[n] == 0)
+            return 0;
+          else if(n == i && a[n] != 0)
+            return 0;
+          n++;
+        }
+    }
+    return 1;
+  }
 }

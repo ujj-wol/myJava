@@ -10,7 +10,33 @@ public class MaxMinEqualArray {
 
   static int maxMinEqual(int[] a) {
     if(a.length <= 1) return 0;
-    
+
+    int max = Integer.MIN_VALUE;
+    int min = Integer.MAX_VALUE;
+    int maxCount = 0, minCount = 0;
+
+    for(int i = 0; i < a.length; i++) {
+      if(a[i] == min)
+        minCount++;
+      else if(a[i] < min) {
+        min = a[i];
+        minCount = 1;
+      }
+      if(a[i] == max)
+        maxCount++;
+      else if(a[i] > max) {
+        max = a[i];
+        maxCount = 1;
+      }
+    }
+    if(max == min || maxCount != minCount)
+      return 0;
+    return 1;
+  }
+
+  static int maxMinEqual1(int[] a) {
+    if(a.length <= 1) return 0;
+
     int max = a[0], min = a[0];
     int maxCount = 0, minCount = 0;
 
